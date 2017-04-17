@@ -19,7 +19,12 @@ export class NullSaver {
   md5 (list = []) {
     let data = _.cloneDeep(list || [])
     return data.map(item => {
-      item.md5 = md5(stringify(item))
+      item.md5 = md5(
+        stringify({
+          title: item.title,
+          summary: item.summary
+        })
+      )
       return item
     })
   }
