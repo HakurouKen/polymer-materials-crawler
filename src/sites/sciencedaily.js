@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import RssSite from '../utils/rss-site'
 
-const nameRegex = /\/(.*)\.xml$/
+const nameRegex = /(\w+)\.xml$/
 function gen (url = '') {
   return class extends RssSite {
     constructor () {
@@ -13,14 +13,10 @@ function gen (url = '') {
     }
 
     static get name () {
-      return _.capitalize((url.match(nameRegex) || [])[1] || '')
+      return 'ScienceDaily' +
+        _.capitalize(_.camelCase(url.match(nameRegex) || [])[1] || '')
     }
   }
 }
 
-export default [
-  'top/science.xml',
-  'top/health.xml',
-  'top/technology.xml',
-  'top/environment.xml'
-].map(gen)
+export default ['matter_energy.xml'].map(gen)
