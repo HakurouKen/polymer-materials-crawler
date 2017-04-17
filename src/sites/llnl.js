@@ -11,7 +11,6 @@ export default class Llnl extends Site {
       .map((i, elem) => {
         const $elem = $(elem)
         const $title = $elem.find('h3 a')
-        const url = $title.attr('href')
         const content = $elem.find('p').text()
         let [date, summary] = _.split(content, '-', 2)
         return {

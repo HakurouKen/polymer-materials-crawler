@@ -6,7 +6,8 @@ export function page (url) {
   return new Promise((resolve, reject) => {
     request(
       {
-        url: url
+        url: url,
+        proxy: 'http://dev-proxy.oa.com:8080'
       },
       (error, response, body) => {
         if (error) {
@@ -20,7 +21,8 @@ export function page (url) {
 
 export function pipe (url) {
   return request({
-    url: url
+    url: url,
+    proxy: 'http://dev-proxy.oa.com:8080'
   })
 }
 

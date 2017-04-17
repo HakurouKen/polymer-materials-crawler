@@ -1,5 +1,4 @@
 import RssSite from '../utils/rss-site'
-import time from '../utils/time'
 
 export default class Pnnl extends RssSite {
   constructor () {

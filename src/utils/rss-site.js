@@ -1,4 +1,3 @@
-import URL from 'url'
 import FeedParser from 'feedparser'
 import cheerio from 'cheerio'
 import Promise from 'bluebird'
@@ -7,10 +6,6 @@ import Site from './site'
 import time from './time'
 
 export default class RssSite extends Site {
-  constructor (url, name, site) {
-    super(url, name, site)
-  }
-
   async list () {
     return new Promise((resolve, reject) => {
       let result = []
@@ -30,12 +25,9 @@ export default class RssSite extends Site {
             // 默认取 image 字段作为图片
             let img = item.image || {}
             // 如果没有，则取 enclosures 中的第一张图作为图片
-            img = img.url
-              ? img
-              : (item.enclosures || [])
-                  .filter(enclosure => enclosure.type.indexOf('image/') === 0)[
-                  0
-                ]
+            img = img.url ? img : (item.enclosures || []).filter(enclosure => {
+              return enclosure.type.indexOf('image/') === 0
+            })[0]
             // 如果还是没有，取正文中的第一张图
             img = (img && img.url) || $('img').attr('src') || ''
 

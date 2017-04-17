@@ -1,5 +1,4 @@
 import _url from 'url'
-import _ from 'lodash'
 import cheerio from 'cheerio'
 import req from './req'
 import time from './time'

@@ -6,7 +6,6 @@ export default class Ameslab extends Site {
   }
 
   processor ($) {
-    const self = this
     return $('.view-latest-news-releases .views-row')
       .map(function (i, elem) {
         const $elem = $(elem)

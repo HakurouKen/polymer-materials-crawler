@@ -1,5 +1,4 @@
 import RssSite from '../utils/rss-site'
-import time from '../utils/time'
 
 class NrelNewsRelease extends RssSite {
   constructor () {
