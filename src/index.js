@@ -13,7 +13,11 @@ const files = fs.readdirSync(path.join(__dirname, './sites'));
   try {
     const saver = new Saver(DB.database, DB.username, DB.password, {
       host: DB.host,
-      port: DB.port
+      port: DB.port,
+      define: {
+        charset: 'utf8',
+        collate: 'utf8_general_ci'
+      }
     })
     await saver.sync()
     for (let Site of SiteConstructors) {
