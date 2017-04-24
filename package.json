@@ -10,7 +10,7 @@
     "dev": "babel src -d dist -w",
     "lint": "eslint src/** --fix",
     "privacy": "git update-index --assume-unchanged db.privacy.json",
-    "build": "npm run lint && babel src -d dist",
+    "build": "npm run lint && babel src -d dist -q",
     "start": "npm run build && node dist"
   },
   "dependencies": {
